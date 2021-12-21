@@ -99,6 +99,7 @@ def update_products(id, nameProduct, SumProduct, PriceProduct ,DateProduct, Date
 
 def update_orders(id, nameProduct, SumProduct, NameShop, AddressShop):
     O_order = Order.objects.get(id=id)
+    O_order.Order_Id_Product = Product.objects.get(id=id)
     O_order.Order_Name_Product = nameProduct
     O_order.Order_Sum = SumProduct
     O_order.Order_Name_Store = NameShop

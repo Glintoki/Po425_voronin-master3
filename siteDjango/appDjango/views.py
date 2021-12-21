@@ -479,7 +479,8 @@ class SiteShopSiteOrder(View):
                     'idOrders': idOrders
                 }
                 return render(request, 'siteshop/UpdateOrder.html', context=context)
-            elif request.POST.get("updateOrder1"):
+            if request.POST.get("updateOrder1"):
+                print("2323")
                 id = request.POST.get("id")
                 nameProduct = request.POST.get("Products")
                 SumProduct = request.POST.get("Sum")
@@ -575,3 +576,12 @@ class ErrorSitesProducts(View):
                     return HttpResponseRedirect("/ErrorSite.html")
         except(KeyError):
             return HttpResponseRedirect("/login.html")
+
+def UpdateOrder(request, id):
+        nameProduct = request.POST.get("Products")
+        SumProduct = request.POST.get("Sum")
+        NameShop = request.POST.get("NameShop")
+        AddressShop = request.POST.get("Address")
+        update_orders(id, nameProduct, SumProduct, NameShop, AddressShop)
+        idUsers = get_user_order_id(request.session['id_user'])
+        return HttpResponseRedirect('/siteshop/siteordershop.html')

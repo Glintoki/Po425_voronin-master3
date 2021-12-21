@@ -20,7 +20,7 @@
                   <h2>Изменить заказ товара</h2>
 
                   <div class="form">
-                      <form method="post">
+                      <form method="post" action="/siteshop/{{idOrders.id}}/UpdateOrder.html">
                           {% csrf_token %}
 
                     <select class="buttonphone" name="Products">{% for product in products %}

@@ -21,6 +21,7 @@ urlpatterns = [
     path('siteshop/siteordershop.html', SiteShopSiteOrder.as_view()),
     path('siteshop/stieaccshop.html', SiteAccShop.as_view()),
     path('ErrorSite.html', ErrorSites.as_view()),
+    path('siteshop/<int:id>/UpdateOrder.html', UpdateOrder),
     path('ErrorSiteProducts.html', ErrorSitesProducts.as_view()),
     path('logout/', logout, name='logout')
 ]
